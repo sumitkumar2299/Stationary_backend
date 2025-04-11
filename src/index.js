@@ -1,9 +1,10 @@
 const express  = require("express");
 const serverConfig = require("./Config/serverConfig");
 const ConnectDB = require("./Config/dbConfig");
-const User = require("./schema/userSchema");
+// const User = require("./schema/userSchema");
 const userRouter = require("./Routes/userRoutes");
 const cartRouter = require("./Routes/CartRoute");
+const authRouter = require("./Routes/authRoute");
 
 const app = express();
 
@@ -15,6 +16,7 @@ app.use(express.urlencoded({extended:true})); //HTML form ke data ko parse karta
 
 app.use('/users',userRouter); // connects cart router to the server
 app.use('/carts',cartRouter);
+app.use('/auth',authRouter);
 
 
 app.post('/ping',(req,res)=>{
