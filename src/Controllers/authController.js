@@ -6,12 +6,18 @@ async function login(req,res){
         
         const loginPayload = req.body;
         const response = await loginUser(loginPayload);
-        console.log("loging in authcontroller.js")
+
+        res.cookie("authToken",response,{
+            httpOnly:true,
+            secure:false,
+            maxAge: 7*24*60*60*1000
+        })
+       
 
         return res.status(200).json({
             success:true,
             message:"logged in succesfully",
-            data:response,
+            data:{},
             error:{}
         })
     }catch(error){
