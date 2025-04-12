@@ -11,7 +11,9 @@ const authRouter = require("./Routes/authRoute");
 const {isLoggedIn} = require('./Validation/authValidator')
 const uploader = require('./Middleware/multerMiddleware');
 const cloudinary = require('./Config/cloudinaryConfig');
-const fs = require('fs/promises')
+const fs = require('fs/promises');
+const productRouter = require('./Routes/ProductRoute');
+
 
 const app = express();
 
@@ -26,6 +28,8 @@ app.use(express.urlencoded({extended:true})); //HTML form ke data ko parse karta
 app.use('/users',userRouter); // connects cart router to the server
 app.use('/carts',cartRouter);
 app.use('/auth',authRouter);
+app.use('/products',productRouter);
+
 
 
 app.get('/ping',isLoggedIn,(req,res)=>{
