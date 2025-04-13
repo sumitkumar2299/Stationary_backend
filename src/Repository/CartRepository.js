@@ -21,8 +21,8 @@ async function createcart(userId){
 async function getCartByUserId(userId){
     try{
         const cart = await Cart.findOne({
-            user:userid
-        });
+            user:userId //iske liye ek khali cart bana do
+        }).populate('items.product');  //.populate() ka kaam hai reference wale ObjectId ko full document mein convert kar dena.
         return cart;
     }catch(error){
         console.log(error);
