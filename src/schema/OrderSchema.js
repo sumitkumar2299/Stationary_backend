@@ -22,15 +22,13 @@ const orderSchema = new mongoose.Schema({
     ],
 
     totalPrice:{
-        type:String,
+        type:Number,
         default:'ORDERED',
         enum:['ORDERED','CANCELLED','DELIVERED','PROCESSING','OUT_FOR_DELIVERY'],
 
     },
-    address:{
-        type:String,
-        minLength:[10,"Address should be of atleast 10 characters"]
-    },
+
+    
     paymentMethod:{
         type:String,
         enum:['ONLINE','CASH'],
