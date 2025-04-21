@@ -6,6 +6,8 @@ import HomePage from './Pages/Home'
 import Signup from './Pages/Auth/Signup'
 import Login from './Pages/Auth/Login'
 import NotFound from './Pages/Auth/NotFound'
+import Denied from './Pages/Denied'
+import AddProduct from './Pages/Admin/AddProduct'
 
 
 
@@ -16,10 +18,10 @@ function App() {
     <>
       <Routes>
         <Route path='/' element = {<HomePage/>}/>
+        <Route path='/denied' element = {<Denied/>}/>
         <Route path='/auth/signup' element = {<Signup/>}/>
         <Route path='/auth/login' element = {<Login/>}/>
-
-
+        <Route path='/admin/addProduct'element={<AddProduct/>}/>
         <Route path='*' element = {<NotFound/>}/>
 
       </Routes>
