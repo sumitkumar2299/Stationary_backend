@@ -47,10 +47,13 @@
 
 const { createOrder } = require("../services/orderService");
  const AppError = require("../utils/appError");
+
+ console.log("hey from controller layer");
  
  async function createNewOrder(req, res) {
      try {
          const order = await createOrder(req.user.id, req.body.paymentMethod);
+         
          return res.status(201).json({
              success: true,
              message: "Successfully created the order",

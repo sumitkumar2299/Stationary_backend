@@ -30,7 +30,9 @@
 
 
 
-const Order = require("../schema/orderSchema");
+// const Order = require("../schema/orderSchema");
+const Order = require('../schema/OrderSchema')
+
 const BadRequestError = require("../utils/badRequestError");
 const InternalServerError = require("../utils/internalServerError");
  
